@@ -85,13 +85,11 @@ function get_speedtest(){
     fi
     install_go
     cd && git clone https://github.com/librespeed/speedtest-go
-    mv speedtest-go speedtest
-    cd speedtest
-    git checkout remotes/origin/go
+    cd speedtest-go
     mkdir $dir && cp -r settings.toml assets $dir
     /usr/local/go/bin/go build -o speedtest main.go
-    cp ./speedtest $dir
-    cd && rm -rf speedtest go
+    cp ./speedtest-go $dir
+    cd && rm -rf speedtest-go
     cd $dir && sed -i "4s/[0-9]\{1,5\}/$port/g" settings.toml
     cd $dir"assets" && mv example-singleServer-full.html index.html
     rm -rf /usr/local/go /usr/go
