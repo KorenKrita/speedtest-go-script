@@ -85,6 +85,7 @@ function get_speedtest(){
     fi
     install_go
     cd && git clone https://github.com/librespeed/speedtest-go
+    mv speedtest-go speedtest
     cd speedtest
     git checkout remotes/origin/go
     mkdir $dir && cp -r settings.toml assets $dir
